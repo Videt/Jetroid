@@ -56,7 +56,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 3a37a622533be8e438ea9f6d14c9d185, type: 3}
-    totalSpriteSurfaceArea: 1484572
+    totalSpriteSurfaceArea: 1483884
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -96,7 +96,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 433585994adad1148a5d3fb652df95c6, type: 3}
   - {fileID: 21300000, guid: fa9e430ad79302b4faba72a5776f2589, type: 3}
   - {fileID: 21300000, guid: ffcc1a6a2a0415e4c8f8b70de9023e50, type: 3}
-  - {fileID: 21300000, guid: 7f161b8a79cfff54b8551b8f1673055d, type: 3}
+  - {fileID: 6136173041846163417, guid: 7f161b8a79cfff54b8551b8f1673055d, type: 3}
+  - {fileID: 1573228798759946831, guid: 7f161b8a79cfff54b8551b8f1673055d, type: 3}
+  - {fileID: -2197375248121754816, guid: 7f161b8a79cfff54b8551b8f1673055d, type: 3}
+  - {fileID: 8530706350158813110, guid: 7f161b8a79cfff54b8551b8f1673055d, type: 3}
+  - {fileID: 2918917116016054090, guid: 7f161b8a79cfff54b8551b8f1673055d, type: 3}
   - {fileID: 21300000, guid: 0c54aeca9ff6c4f4ca16a63cd6bdbdf8, type: 3}
   - {fileID: 21300000, guid: 6df919da1cb57fc4b82f64a2e02d1ca7, type: 3}
   - {fileID: 21300000, guid: f3d443cb2dc753a48b0922df31626e2c, type: 3}
@@ -150,7 +154,11 @@ SpriteAtlas:
   - player-walk-00
   - title
   - alien-a-05
-  - cave-sprites
+  - cave-sprites_0
+  - cave-sprites_1
+  - cave-sprites_2
+  - cave-sprites_3
+  - cave-sprites_4
   - alien-a-03
   - crystal-03
   - player-walk-03
