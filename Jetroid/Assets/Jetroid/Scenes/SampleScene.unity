@@ -141,8 +141,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!60 &1122264
-PolygonCollider2D:
+--- !u!61 &1122264
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -164,14 +164,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 5.502701, y: 6.8258934}
-      - {x: -4.2084427, y: -5.269262}
-      - {x: -10, y: 10}
-      - {x: -10, y: -10}
-      - {x: 10, y: -10}
-      - {x: 10, y: 10}
+  serializedVersion: 2
+  m_Size: {x: 20, y: 20}
+  m_EdgeRadius: 0
 --- !u!212 &1122265
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -410,6 +405,10 @@ PrefabInstance:
     - target: {fileID: 2823059372202018153, guid: b19b18465f5f929478e03846eb457bb4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2823059372202018154, guid: b19b18465f5f929478e03846eb457bb4, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2823059372202018156, guid: b19b18465f5f929478e03846eb457bb4, type: 3}
       propertyPath: m_Name

@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D body2D;
     private SpriteRenderer renderer2D;
     private PlayerController controller;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +22,16 @@ public class Player : MonoBehaviour
         body2D = GetComponent<Rigidbody2D>();
         renderer2D = GetComponent<SpriteRenderer>();
         controller = GetComponent<PlayerController>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float absVelX = Mathf.Abs(body2D.velocity.x);
-        float absVelY = Mathf.Abs(body2D.velocity.y);
+        float absValX = Mathf.Abs(body2D.velocity.x);
+        float absValY = Mathf.Abs(body2D.velocity.y);
 
-        if (absVelY <= standingThreshhold)
+        if (absValY <= standingThreshhold)
         {
             standing = true;
         }
@@ -43,20 +45,32 @@ public class Player : MonoBehaviour
 
         if (controller.moving.x != 0)
         {
-            if(absVelX < maxVelocity.x)
+            if(absValX < maxVelocity.x)
             {
                 float newSpeed = speed * controller.moving.x;
                 forceX = standing ? newSpeed : (newSpeed * airSpeedMultiplier);
                 renderer2D.flipX = forceX < 0;
             }
+
+            animator.SetInteger("AnimState", 1);
+        }
+        else
+        {
+            animator.SetInteger("AnimState", 0);
         }
 
         if (controller.moving.y > 0)
         {
-            if (absVelY < maxVelocity.y)
+            if (absValY < maxVelocity.y)
             {
                 forceY = jetSpeed * controller.moving.y;
             }
+
+            animator.SetInteger("AnimState", 2);
+        }
+        else if (absValY > 0 && !standing)
+        {
+            animator.SetInteger("AnimState", 3);
         }
 
         body2D.AddForce(new Vector2(forceX, forceY));
