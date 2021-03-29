@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
 
         if (controller.moving.x != 0)
         {
-            if(absValX < maxVelocity.x)
+            if (absValX < maxVelocity.x)
             {
                 float newSpeed = speed * controller.moving.x;
                 forceX = standing ? newSpeed : (newSpeed * airSpeedMultiplier);
