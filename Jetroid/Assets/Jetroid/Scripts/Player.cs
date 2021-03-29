@@ -13,12 +13,14 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D body2D;
     private SpriteRenderer renderer2D;
+    private PlayerController controller;
 
     // Start is called before the first frame update
     void Start()
     {
         body2D = GetComponent<Rigidbody2D>();
         renderer2D = GetComponent<SpriteRenderer>();
+        controller = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -39,30 +41,21 @@ public class Player : MonoBehaviour
         float forceX = 0f;
         float forceY = 0f;
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (controller.moving.x != 0)
         {
             if(absVelX < maxVelocity.x)
             {
-                forceX = standing ? speed : (speed * airSpeedMultiplier);
+                float newSpeed = speed * controller.moving.x;
+                forceX = standing ? newSpeed : (newSpeed * airSpeedMultiplier);
+                renderer2D.flipX = forceX < 0;
             }
-
-            renderer2D.flipX = false;
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            if (absVelX < maxVelocity.x)
-            {
-                forceX = standing ? -speed : -(speed * airSpeedMultiplier);
-            }
-
-            renderer2D.flipX = true;
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (controller.moving.y > 0)
         {
             if (absVelY < maxVelocity.y)
             {
-                forceY = jetSpeed;
+                forceY = jetSpeed * controller.moving.y;
             }
         }
 
