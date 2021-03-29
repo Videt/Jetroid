@@ -12,6 +12,12 @@ public class Explode : MonoBehaviour
             OnExplode();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Deadly"))
+            OnExplode();
+    }
+
     private void OnExplode()
     {
         Transform t = transform;
