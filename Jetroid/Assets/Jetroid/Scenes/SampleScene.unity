@@ -237,37 +237,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2823059372202018156, guid: b19b18465f5f929478e03846eb457bb4, type: 3}
   m_PrefabInstance: {fileID: 2823059372354170175}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &250718292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250718291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d17e240d55c53b4cb50d59fd6b91a87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moving: {x: 0, y: 0}
---- !u!114 &250718297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250718291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33b3ebd83f667794a9ce8cbead3db68d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 150
-  maxVelocity: {x: 60, y: 100}
-  jetSpeed: 200
-  standing: 0
-  standingThreshhold: 4
-  airSpeedMultiplier: 0.3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +248,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -294,6 +264,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1a73ccdd0a7934e8707f0de8bf3ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 250718291}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -358,10 +341,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 250718292, guid: b19b18465f5f929478e03846eb457bb4, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 2823059372202018153, guid: b19b18465f5f929478e03846eb457bb4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -405,10 +384,6 @@ PrefabInstance:
     - target: {fileID: 2823059372202018153, guid: b19b18465f5f929478e03846eb457bb4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2823059372202018154, guid: b19b18465f5f929478e03846eb457bb4, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2823059372202018156, guid: b19b18465f5f929478e03846eb457bb4, type: 3}
       propertyPath: m_Name
