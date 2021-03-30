@@ -10,6 +10,7 @@ public class TileMapEditor : Editor {
 	TileBrush brush;
 	Vector3 mouseHitPos;
 	bool solidFlag;
+	int sortingOrder = 0;
 
 	bool mouseOnMap{
 		get { return mouseHitPos.x > 0 && mouseHitPos.x < map.gridSize.x && mouseHitPos.y < 0 && mouseHitPos.y > -map.gridSize.y;}
@@ -43,7 +44,9 @@ public class TileMapEditor : Editor {
 			EditorGUILayout.LabelField("Pixels To Units:", map.pixelsToUnits.ToString());
 
 			solidFlag = EditorGUILayout.Toggle("Solid", solidFlag);
-						
+
+			sortingOrder = EditorGUILayout.IntField("Order In Layer", sortingOrder);
+
 			UpdateBrush(map.currentTileBrush);
 
 			if(GUILayout.Button("Clear Tiles")){
@@ -197,6 +200,7 @@ public class TileMapEditor : Editor {
 		SpriteRenderer renderer = tile.GetComponent<SpriteRenderer>();
 		renderer.sprite = brush.renderer2D.sprite;
 
+		renderer.sortingOrder = sortingOrder;
 
 		BoxCollider2D collider = tile.GetComponent<BoxCollider2D>();
 		collider.enabled = solidFlag;
