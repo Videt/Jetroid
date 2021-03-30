@@ -9,6 +9,7 @@ public class TileMapEditor : Editor {
 
 	TileBrush brush;
 	Vector3 mouseHitPos;
+	bool solidFlag;
 
 	bool mouseOnMap{
 		get { return mouseHitPos.x > 0 && mouseHitPos.x < map.gridSize.x && mouseHitPos.y < 0 && mouseHitPos.y > -map.gridSize.y;}
@@ -40,6 +41,9 @@ public class TileMapEditor : Editor {
 			map.tilePadding = EditorGUILayout.Vector2Field ("Tile Padding", map.tilePadding);
 			EditorGUILayout.LabelField("Grid Size In Units:", map.gridSize.x+"x"+map.gridSize.y);
 			EditorGUILayout.LabelField("Pixels To Units:", map.pixelsToUnits.ToString());
+
+			solidFlag = EditorGUILayout.Toggle("Solid", solidFlag);
+						
 			UpdateBrush(map.currentTileBrush);
 
 			if(GUILayout.Button("Clear Tiles")){
@@ -186,9 +190,18 @@ public class TileMapEditor : Editor {
 			tile.transform.SetParent(map.tiles.transform);
 			tile.transform.position = new Vector3(posX, posY, 0);
 			tile.AddComponent<SpriteRenderer>();
+
+			tile.AddComponent<BoxCollider2D>();
 		}
 
-		tile.GetComponent<SpriteRenderer> ().sprite = brush.renderer2D.sprite;
+		SpriteRenderer renderer = tile.GetComponent<SpriteRenderer>();
+		renderer.sprite = brush.renderer2D.sprite;
+
+
+		BoxCollider2D collider = tile.GetComponent<BoxCollider2D>();
+		collider.enabled = solidFlag;
+
+		collider.size = renderer.bounds.size;
 	}
 
 	void RemoveTile(){
