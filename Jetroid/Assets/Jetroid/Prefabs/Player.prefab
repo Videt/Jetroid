@@ -187,3 +187,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869a51637ec28dd47b4bb8540b025f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debris: {fileID: 6757389690540175211, guid: 4713d38f2eaed664ea93e1cecc20b982, type: 3}
+  totalDebris: 10
