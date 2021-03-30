@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour
 {
+    public DoorTrigger[] doorTriggers;
+    public bool sticky;
+
+    private bool down = false;
     private Animator animator;
 
     void Start()
@@ -13,11 +17,30 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        down = true;
+
         animator.SetInteger("AnimState", 1);
+
+        foreach (DoorTrigger trigger in doorTriggers)
+        {
+            if (trigger != null)
+                trigger.Toggle(true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (sticky && down)
+            return;
+
+        down = false;
+
         animator.SetInteger("AnimState", 2);
+
+        foreach (DoorTrigger trigger in doorTriggers)
+        {
+            if (trigger != null)
+                trigger.Toggle(false);
+        }
     }
 }

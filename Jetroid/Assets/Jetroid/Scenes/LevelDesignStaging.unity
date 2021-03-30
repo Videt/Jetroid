@@ -21008,6 +21008,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1625178612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1625178612, guid: 3511d47a9b1f85c41b19065ad53e04d1, type: 3}
+  m_PrefabInstance: {fileID: 570647713304178628}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c1997dabd42fc4aa0c897b926b4cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1627196426
 GameObject:
   m_ObjectHideFlags: 0
@@ -29112,11 +29123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4713059438445565917, guid: 25f2ae46936119b428241a032ee72b0b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 90.1
+      value: 67.3
       objectReference: {fileID: 0}
     - target: {fileID: 4713059438445565917, guid: 25f2ae46936119b428241a032ee72b0b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -298
+      value: -197.5
       objectReference: {fileID: 0}
     - target: {fileID: 4713059438445565917, guid: 25f2ae46936119b428241a032ee72b0b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29150,5 +29161,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5720074034956495321, guid: 25f2ae46936119b428241a032ee72b0b, type: 3}
+      propertyPath: doorTriggers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720074034956495321, guid: 25f2ae46936119b428241a032ee72b0b, type: 3}
+      propertyPath: doorTriggers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1625178612}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f2ae46936119b428241a032ee72b0b, type: 3}
