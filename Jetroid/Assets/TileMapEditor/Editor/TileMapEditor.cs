@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEditor;
+using System.Collections.Generic;
 
 [CustomEditor(typeof(TileMap))]
 public class TileMapEditor : Editor {
@@ -11,6 +12,7 @@ public class TileMapEditor : Editor {
 	Vector3 mouseHitPos;
 	bool solidFlag;
 	int sortingOrder = 0;
+	string layerName = "";
 
 	bool mouseOnMap{
 		get { return mouseHitPos.x > 0 && mouseHitPos.x < map.gridSize.x && mouseHitPos.y < 0 && mouseHitPos.y > -map.gridSize.y;}
@@ -46,6 +48,20 @@ public class TileMapEditor : Editor {
 			solidFlag = EditorGUILayout.Toggle("Solid", solidFlag);
 
 			sortingOrder = EditorGUILayout.IntField("Order In Layer", sortingOrder);
+
+			string[] layerNames = GetLayerNames();
+			int index = ArrayUtility.IndexOf(layerNames, layerName);
+
+			index = EditorGUILayout.Popup("Layer Name", index, layerNames);
+
+			if (index > -1)
+            {
+				layerName = layerNames[index];
+				if (GUILayout.Button("Clear Layout"))
+                {
+					layerName = null;
+                }
+            }
 
 			UpdateBrush(map.currentTileBrush);
 
@@ -206,6 +222,8 @@ public class TileMapEditor : Editor {
 		collider.enabled = solidFlag;
 
 		collider.size = renderer.bounds.size;
+
+		tile.layer = LayerMask.NameToLayer(layerName);
 	}
 
 	void RemoveTile(){
@@ -225,4 +243,21 @@ public class TileMapEditor : Editor {
 			i--;
 		}
 	}
+
+	private string[] GetLayerNames()
+    {
+		List<string> layerNames = new List<string>();
+
+        for (int i = 6; i < 31; i++)
+        {
+			string layer = LayerMask.LayerToName(i);
+
+			if(layer.Length > 0)
+            {
+				layerNames.Add(layer);
+            }
+        }
+
+		return layerNames.ToArray();
+    }
 }
