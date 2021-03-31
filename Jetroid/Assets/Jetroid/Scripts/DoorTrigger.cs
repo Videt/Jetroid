@@ -32,4 +32,15 @@ public class DoorTrigger : MonoBehaviour
         else
             door.Close();
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = ignoreTrigger ? Color.gray : Color.green;
+
+        BoxCollider2D bc2D = GetComponent<BoxCollider2D>();
+        Vector3 pos = bc2D.transform.position;
+
+        Vector2 newPos = new Vector2(pos.x + bc2D.offset.x, pos.y + bc2D.offset.y);
+        Gizmos.DrawWireCube(newPos, new Vector2(bc2D.size.x, bc2D.size.y));
+    }
 }

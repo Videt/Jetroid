@@ -2903,10 +2903,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9221457971932088235, guid: b19b18465f5f929478e03846eb457bb4, type: 3}
-      propertyPath: debris
-      value: 
-      objectReference: {fileID: 6757389690540175211, guid: 4713d38f2eaed664ea93e1cecc20b982, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b19b18465f5f929478e03846eb457bb4, type: 3}
 --- !u!1 &226012318 stripped
@@ -29160,10 +29156,6 @@ PrefabInstance:
     - target: {fileID: 4713059438445565917, guid: 25f2ae46936119b428241a032ee72b0b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5720074034956495321, guid: 25f2ae46936119b428241a032ee72b0b, type: 3}
-      propertyPath: doorTriggers.Array.size
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5720074034956495321, guid: 25f2ae46936119b428241a032ee72b0b, type: 3}
       propertyPath: doorTriggers.Array.data[0]
