@@ -18,7 +18,7 @@ public class Explode : MonoBehaviour
             OnExplode();
     }
 
-    private void OnExplode()
+    public void OnExplode()
     {
         Transform t = transform;
 
